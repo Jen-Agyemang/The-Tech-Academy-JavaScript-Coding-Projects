@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .frame1{
+            margin:0 auto; text-align:center; height:265px; width:200px; border:8px solid #000; border-radius:5%; box-shadow:10px 30px gray;
+            }
+            #total {
+                text-align:right; margin:4% 8%; background-color:lightgray; border:2px solid #000; border-radius:5%;
+            }
+            button {
+                color:#696c70; margin:2% 1px; height:35px; width:80px;
+            }
+            button:hover {
+                color:#000; font-weight:bold; border:2px solid #000;
+            }
+            input:hover {
+                font-weight:bold; border:2px solid #000;
+            }
+    </style>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="" />
+    
+</head>
+<body>
+    <div class="frame1">
+        <h1 id="total">0.00</h1>
+        <br>
+        Number 1: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" id="txt2" size="4">
+        <br><br>
+        Number 2: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" id="txt1" size="4">
+        <br><br><br>
+        <input type="radio" name="calc" value="*" checked> *</input>&nbsp&nbsp
+        <input type="radio" name="calc" value="/"> /</input>&nbsp&nbsp
+        <input type="radio" name="calc" value="+"> +</input>&nbsp&nbsp
+        <input type="radio" name="calc" value="-"> -</input>&nbsp&nbsp
+        <br><br>
+        <button type="button" onclick="Calc();">Calculator</button>
+        <button type="button" onclick="Clear;">Clear</button>
+    </div>
+
+    <script>
+        let txt1 = document.getElementById("txt1");
+        let txt2 = document.getElementById("txt2");
+        let total = document.getElementById("total");
+
+        function calc() {
+            let result = document.querySelector('input[name="calc"]:checked').value; //checked
+            let num1 = parseInt(txt1.value); console.log(typeof num1); console.log(isNaN(num1));
+            let num2 = parseInt(txt2.value); console.log(typeof num2); console.log(isNaN(num2));
+            if(result == "*") {
+                total.innerHTML = (num1 * num2).toFixed(2);
+            } else if(result == "/") {
+                total.innerHTML = (num1 / num2).toFixed(2); //precise to the tenths place
+            } else if(result == "+") {
+                total.innerHTML = (num1 + num2).toFixed(2); 
+            } else if(result == "-") {
+                total.innerHTML = (num1 - num2).toFixed(2);
+        };
+        };
+        function Clear() {
+            txt1.value=""; txt2.value=""; total.innerHTML="0.00"; //this reset fields
+        };
+    </script>
+    
+</body>
+</html>
